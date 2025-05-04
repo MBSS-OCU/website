@@ -3,14 +3,15 @@ import { getServerSideURL } from './getURL'
 
 const defaultOpenGraph: Metadata['openGraph'] = {
   type: 'website',
-  description: 'An open-source website built with Payload and Next.js.',
+  description:
+    'Офіційний вебсайт Молодіжного Братства святого Стиліана ПЦУ — спільноти православної молоді для зростання у вірі та служінні.',
   images: [
     {
       url: `${getServerSideURL()}/website-template-OG.webp`,
     },
   ],
-  siteName: 'Payload Website Template',
-  title: 'Payload Website Template',
+  siteName: 'Молодіжне Братство св. Стиліана ПЦУ',
+  title: 'Молодіжне Братство св. Стиліана ПЦУ',
 }
 
 export const mergeOpenGraph = (og?: Metadata['openGraph']): Metadata['openGraph'] => {

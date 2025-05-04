@@ -14,6 +14,8 @@ export const revalidate = 600
 export default async function Page() {
   const payload = await getPayload({ config: configPromise })
 
+  console.log(payload.collections)
+
   const posts = await payload.find({
     collection: 'posts',
     depth: 1,
@@ -32,7 +34,7 @@ export default async function Page() {
       <PageClient />
       <div className="container mb-16">
         <div className="prose dark:prose-invert max-w-none">
-          <h1>Posts</h1>
+          <h1>Пости</h1>
         </div>
       </div>
 
@@ -58,6 +60,6 @@ export default async function Page() {
 
 export function generateMetadata(): Metadata {
   return {
-    title: `Payload Website Template Posts`,
+    title: `Пости | МБСС`,
   }
 }

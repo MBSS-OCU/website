@@ -36,15 +36,15 @@ export const ThemeSelector: React.FC = () => {
   return (
     <Select onValueChange={onThemeChange} value={value}>
       <SelectTrigger
-        aria-label="Select a theme"
+        aria-label="Виберіть тему"
         className="w-auto bg-transparent gap-2 pl-0 md:pl-3 border-none"
       >
-        <SelectValue placeholder="Theme" />
+        <SelectValue placeholder="Тема" />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem value="auto">Auto</SelectItem>
-        <SelectItem value="light">Light</SelectItem>
-        <SelectItem value="dark">Dark</SelectItem>
+        <SelectItem value="auto">Системна тема</SelectItem>
+        <SelectItem value="light">Світла тема</SelectItem>
+        <SelectItem value="dark">Темна тема</SelectItem>
       </SelectContent>
     </Select>
   )

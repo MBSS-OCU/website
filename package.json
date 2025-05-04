@@ -1,13 +1,13 @@
 {
-  "name": "payload-vercel-website-template",
+  "name": "mbss-ocu-website",
   "version": "1.0.0",
-  "description": "Website template for Payload",
+  "description": "Вебсайт сайта МБСС ПЦУ",
   "license": "MIT",
   "type": "module",
   "scripts": {
     "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
     "postbuild": "next-sitemap --config next-sitemap.config.cjs",
-    "ci": "payload migrate && pnpm build",
+    "ci": "echo 'y' | payload migrate && pnpm build",
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
     "dev:prod": "cross-env NODE_OPTIONS=--no-deprecation rm -rf .next && pnpm build && pnpm start",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
@@ -22,7 +22,7 @@
   "dependencies": {
     "@payloadcms/admin-bar": "3.33.0",
     "@payloadcms/db-vercel-postgres": "3.33.0",
-    "@payloadcms/email-resend": "^3.36.1",
+    "@payloadcms/email-resend": "3.33.0",
     "@payloadcms/live-preview-react": "3.33.0",
     "@payloadcms/next": "3.33.0",
     "@payloadcms/payload-cloud": "3.33.0",

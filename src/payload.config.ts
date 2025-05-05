@@ -1,4 +1,4 @@
-import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
+import { gcsStorage } from '@payloadcms/storage-gcs'
 import { vercelPostgresAdapter } from '@payloadcms/db-vercel-postgres'
 
 import sharp from 'sharp' // sharp-import
@@ -75,12 +75,24 @@ export default buildConfig({
   globals: [Header, Footer],
   plugins: [
     ...plugins,
-    vercelBlobStorage({
+    gcsStorage({
       collections: {
         media: true,
       },
-      token: process.env.BLOB_READ_WRITE_TOKEN || '',
+      bucket: process.env.GCS_BUCKET ?? '',
+      options: {
+        apiEndpoint: process.env.GCS_ENDPOINT,
+        projectId: process.env.GCS_PROJECT_ID,
+        credentials: JSON.parse(process.env.GOOGLE_API_CREDENTIALS ?? ''),
+      },
     }),
+
+    // vercelBlobStorage({
+    //   collections: {
+    //     media: true,
+    //   },
+    //   token: process.env.BLOB_READ_WRITE_TOKEN || '',
+    // }),
   ],
   secret: process.env.PAYLOAD_SECRET,
   sharp,

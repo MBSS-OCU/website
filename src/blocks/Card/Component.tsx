@@ -3,25 +3,23 @@
 
 import { cn } from '@/utilities/ui'
 import useClickableCard from '@/utilities/useClickableCard'
-import { Media } from '@/components/Media'
+import type { Media as MediaType } from '@/payload-types'
 import React from 'react'
 import RichText from '@/components/RichText'
 import { DefaultTypedEditorState } from '@payloadcms/richtext-lexical'
+import { Media } from '@/components/Media'
 
 export const Card: React.FC<{
   className?: string
-  image?: string | number | typeof Media | null | undefined
+  image?: MediaType | number | null
   title?: string
-  description?: DefaultTypedEditorState // Payload RichText JSON
+  description?: DefaultTypedEditorState | null // Payload RichText JSON
 }> = ({ className, image, title, description }) => {
   const { card } = useClickableCard({})
 
   return (
     <article
-      className={cn(
-        'border border-border rounded-lg overflow-hidden bg-card hover:cursor-pointer',
-        className,
-      )}
+      className={cn('border border-border rounded-lg overflow-hidden bg-card', className)}
       ref={card.ref}
     >
       <div className="relative w-full">

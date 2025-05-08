@@ -4,8 +4,7 @@ import React from 'react'
 import type { CardBlock as CardBlockProps } from '@/payload-types'
 
 import { CMSLink } from '../../components/Link'
-import { BannerBlock } from '../Banner/Component'
-import { Card } from '@/components/Card'
+import { Card } from '../Card/Component'
 
 export const CardBlock: React.FC<CardBlockProps> = (props) => {
   const { columns } = props
@@ -19,7 +18,7 @@ export const CardBlock: React.FC<CardBlockProps> = (props) => {
 
   return (
     <div className="container my-16">
-      <div className="grid grid-cols-4 lg:grid-cols-12 gap-y-8 gap-x-16">
+      <div className="grid grid-cols-4 lg:grid-cols-12 gap-y-8 gap-x-8">
         {columns &&
           columns.length > 0 &&
           columns.map((col, index) => {
@@ -32,7 +31,7 @@ export const CardBlock: React.FC<CardBlockProps> = (props) => {
                 })}
                 key={index}
               >
-                {card && <Card />}
+                {card && <Card className="h-full" {...card} />}
 
                 {enableLink && <CMSLink {...link} />}
               </div>

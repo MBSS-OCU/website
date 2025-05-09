@@ -165,6 +165,8 @@ export interface Page {
       };
       [k: string]: unknown;
     } | null;
+    title?: string | null;
+    description?: string | null;
     links?:
       | {
           link: {
@@ -192,7 +194,7 @@ export interface Page {
     media?: (number | null) | Media;
     background?: (number | null) | Media;
   };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock | CardBlock | Card)[];
+  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock | CardBlock | Card | BlockHeader)[];
   meta?: {
     title?: string | null;
     /**
@@ -810,6 +812,31 @@ export interface Card {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlockHeader".
+ */
+export interface BlockHeader {
+  title: string;
+  description?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'blockHeader';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1073,6 +1100,8 @@ export interface PagesSelect<T extends boolean = true> {
     | {
         type?: T;
         richText?: T;
+        title?: T;
+        description?: T;
         links?:
           | T
           | {
@@ -1101,6 +1130,7 @@ export interface PagesSelect<T extends boolean = true> {
         formBlock?: T | FormBlockSelect<T>;
         cardBlock?: T | CardBlockSelect<T>;
         card?: T | CardSelect<T>;
+        blockHeader?: T | BlockHeaderSelect<T>;
       };
   meta?:
     | T
@@ -1239,6 +1269,16 @@ export interface CardBlockSelect<T extends boolean = true> {
 export interface CardSelect<T extends boolean = true> {
   title?: T;
   image?: T;
+  description?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlockHeader_select".
+ */
+export interface BlockHeaderSelect<T extends boolean = true> {
+  title?: T;
   description?: T;
   id?: T;
   blockName?: T;

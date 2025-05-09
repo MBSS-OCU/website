@@ -27,9 +27,9 @@ export const Card: React.FC<{
         {image && typeof image === 'object' && <Media resource={image} size="33vw" />}
       </div>
       <div className="p-4">
-        {title && <h3 className="text-lg font-semibold mb-2">{title}</h3>}
+        {title && <h3 className="text-xl font-bold mb-2">{title}</h3>}
         {description && (
-          <div className="prose prose-sm mt-2">
+          <div className="prose mt-2">
             <RichText data={description} enableGutter={false} />
           </div>
         )}

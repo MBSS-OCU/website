@@ -55,7 +55,28 @@ export const hero: Field = {
           ]
         },
       }),
+      admin: {
+        condition: (_, { type } = {}) => !['landing'].includes(type),
+      },
       label: false,
+    },
+    {
+      name: 'title',
+      label: 'Title',
+      type: 'text',
+      admin: {
+        condition: (_, { type } = {}) => ['landing'].includes(type),
+      },
+      required: true,
+    },
+    {
+      name: 'description',
+      label: 'Description',
+      type: 'text',
+      admin: {
+        condition: (_, { type } = {}) => ['landing'].includes(type),
+      },
+      required: false,
     },
     linkGroup({
       overrides: {

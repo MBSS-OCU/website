@@ -25,6 +25,36 @@ export const Footer: GlobalConfig = {
         },
       },
     },
+    {
+      name: 'socialMediaLinks',
+      type: 'array',
+      label: 'Social Media Links',
+      fields: [
+        {
+          name: 'url',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'icon',
+          type: 'select',
+          required: false,
+          options: [
+            { label: 'Facebook', value: 'facebook' },
+            { label: 'Twitter', value: 'twitter' },
+            { label: 'Instagram', value: 'instagram' },
+            { label: 'YouTube', value: 'youtube' },
+            { label: 'Telegram', value: 'telegram' },
+            { label: 'TikTok', value: 'tiktok' },
+            { label: 'GitHub', value: 'github' },
+          ],
+        },
+      ],
+      maxRows: 10,
+      admin: {
+        initCollapsed: true,
+      },
+    },
   ],
   hooks: {
     afterChange: [revalidateFooter],

@@ -14,8 +14,6 @@ export const revalidate = 600
 export default async function Page() {
   const payload = await getPayload({ config: configPromise })
 
-  console.log(payload.collections)
-
   const posts = await payload.find({
     collection: 'posts',
     depth: 1,

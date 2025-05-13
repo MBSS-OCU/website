@@ -1752,6 +1752,13 @@ export interface Footer {
         id?: string | null;
       }[]
     | null;
+  socialMediaLinks?:
+    | {
+        url: string;
+        icon?: ('facebook' | 'twitter' | 'instagram' | 'youtube' | 'telegram' | 'tiktok' | 'github') | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -1795,6 +1802,13 @@ export interface FooterSelect<T extends boolean = true> {
               url?: T;
               label?: T;
             };
+        id?: T;
+      };
+  socialMediaLinks?:
+    | T
+    | {
+        url?: T;
+        icon?: T;
         id?: T;
       };
   updatedAt?: T;

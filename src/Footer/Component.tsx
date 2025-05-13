@@ -17,7 +17,8 @@ import {
   FaTiktok,
   FaLink,
 } from 'react-icons/fa'
-import { FaXTwitter } from 'react-icons/fa6'
+import { FaThreads, FaXTwitter } from 'react-icons/fa6'
+import { SiLinktree } from 'react-icons/si'
 
 const iconMap: Record<string, React.ReactNode> = {
   facebook: <FaFacebook className="size-6" title="Facebook" />,
@@ -28,6 +29,8 @@ const iconMap: Record<string, React.ReactNode> = {
   youtube: <FaYoutube className="size-6" title="YouTube" />,
   telegram: <FaTelegram className="size-6" title="Telegram" />,
   tiktok: <FaTiktok className="size-6" title="TikTok" />,
+  threads: <FaThreads className="size-6" title="Threads" />,
+  linktree: <SiLinktree className="size-6" title="Linktree" />,
 }
 
 export async function Footer() {

@@ -47,6 +47,8 @@ export const Footer: GlobalConfig = {
             { label: 'Telegram', value: 'telegram' },
             { label: 'TikTok', value: 'tiktok' },
             { label: 'GitHub', value: 'github' },
+            { label: 'Threads', value: 'threads' },
+            { label: 'LinkTree', value: 'linktree' },
           ],
         },
       ],

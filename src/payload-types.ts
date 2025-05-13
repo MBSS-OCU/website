@@ -1755,7 +1755,19 @@ export interface Footer {
   socialMediaLinks?:
     | {
         url: string;
-        icon?: ('facebook' | 'twitter' | 'instagram' | 'youtube' | 'telegram' | 'tiktok' | 'github') | null;
+        icon?:
+          | (
+              | 'facebook'
+              | 'twitter'
+              | 'instagram'
+              | 'youtube'
+              | 'telegram'
+              | 'tiktok'
+              | 'github'
+              | 'threads'
+              | 'linktree'
+            )
+          | null;
         id?: string | null;
       }[]
     | null;
